@@ -214,7 +214,6 @@ public class R66PreparedTransferExecutor extends AbstractExecutor {
         RequestPacket request = new RequestPacket(rulename, mode, filename,
                 blocksize, 0, DbConstant.ILLEGALVALUE, fileinfo, originalSize, sep);
         // Not isRecv since it is the requester, so send => isRetrieve is true
-       // new DeleteGatewayFile().deleteFile(request);
         boolean isRetrieve = !RequestPacket.isRecvMode(request.getMode());
         logger.debug("Will prepare: {}", request);
         DbTaskRunner taskRunner;
@@ -241,14 +240,6 @@ public class R66PreparedTransferExecutor extends AbstractExecutor {
         }
         logger.debug("R66PreparedTransfer prepared: {}", request);
         future.setSuccess();
-        try {
-			Thread.sleep(5000);
-			new File(request.getFilename()).delete();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        
-    }
-  
+	 }
 }
+  

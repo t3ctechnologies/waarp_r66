@@ -17,12 +17,9 @@
  */
 package org.waarp.openr66.context.task;
 
-import java.io.File;
-
 import org.waarp.common.command.exception.CommandAbstractException;
 import org.waarp.common.logging.WaarpLogger;
 import org.waarp.common.logging.WaarpLoggerFactory;
-import org.waarp.gateway.kernel.exec.AccessClass;
 import org.waarp.openr66.context.ErrorCode;
 import org.waarp.openr66.context.R66Result;
 import org.waarp.openr66.context.R66Session;
@@ -83,13 +80,5 @@ public class DeleteTask extends AbstractTask {
             return;
         }
         futureCompletion.setSuccess();
-        try {
-			String file=session.getFile().getFile();
-	//		String filepath= new AccessClass().getOriginalname(file);
-//			new File(filepath).delete();
-        } catch (CommandAbstractException e) {
-			e.printStackTrace();
 	}
-        
-   }
- }
+}        

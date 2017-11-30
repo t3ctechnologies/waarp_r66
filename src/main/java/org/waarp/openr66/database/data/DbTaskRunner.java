@@ -3423,6 +3423,19 @@ public class DbTaskRunner extends AbstractDbData {
             
             logger.info("Transfer done on {} at RANK {}", file != null ? file : "no file", rank);
             
+            //TODO Daleting gateway file
+            try {
+				String gatewayfile=file.getFile();
+				boolean res=gatewayfile.contains("T0");
+				if(res==true && mode==1)
+				{
+					new File(gatewayfile).delete();
+				}
+            } catch (CommandAbstractException e) {
+				
+				e.printStackTrace();
+			}
+            
             if (localChannelReference != null) {
                 localChannelReference.validateEndTransfer(finalValue);
             }
